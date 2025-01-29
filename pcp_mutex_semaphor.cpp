@@ -57,20 +57,10 @@ void producer() {
   }
 }
 
-// Wrapper for the consumer thread
-void consumerThread() { 
-  consumer(); 
-}
-
-// Wrapper for the producer thread
-void producerThread() { 
-  producer(); 
-}
-
 int main() {
   // Create and start consumer and producer threads
-  std::thread t1(consumerThread);
-  std::thread t2(producerThread);
+  std::thread t1(consumer);
+  std::thread t2(producer);
 
   // Wait for threads to finish execution
   t1.join();
